@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hola desde login
+        this is the news view
     </div>
 </template>
 

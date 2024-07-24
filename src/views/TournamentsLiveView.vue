@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hola desde login
+        this is the tournaments live view
     </div>
 </template>
 
