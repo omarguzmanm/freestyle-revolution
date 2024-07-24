@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hola mundo
+        Hola desde login
     </div>
 </template>
 
