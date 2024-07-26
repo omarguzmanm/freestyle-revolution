@@ -8,38 +8,65 @@
         pane-wrapper-style="margin: 0 -4px"
         pane-style="padding-left: 4px; padding-right: 4px; box-sizing: border-box;"
       >
-        <!-- Sign Up Form -->
+        <!-- Sign In Form -->
         <n-tab-pane name="signin" tab="Iniciar sesión">
-          <n-form :model="signinForm">
+          <n-form :model="form">
             <n-form-item-row label="Correo electrónico">
-              <n-input :placeholder="'Escribe tu correo'" />
+              <n-input
+                type="email"
+                v-model:value="form.email"
+                :placeholder="'Escribe tu correo'"
+              />
             </n-form-item-row>
             <n-form-item-row label="Contraseña">
-              <n-input :placeholder="'Escribe tu contraseña'" />
+              <n-input
+                v-model:value="form.password"
+                type="password"
+                show-password-on="click"
+                :maxlength="10"
+                :placeholder="'Escribe tu contraseña'"
+              />
             </n-form-item-row>
           </n-form>
-          <n-button type="primary" block secondary strong>
+          <n-button type="primary" block secondary strong @click="login">
             Iniciar sesión
           </n-button>
         </n-tab-pane>
 
         <!-- Sign Up Form -->
         <n-tab-pane name="signup" tab="Registrarse">
-          <n-form :model="signupForm">
+          <n-form :model="form">
             <n-form-item-row label="Nombre">
-              <n-input :placeholder="'Escribe tu nombre completo'" />
+              <n-input
+                type="text"
+                v-model:value="form.name"
+                :placeholder="'Escribe tu nombre completo'"
+              />
+            
             </n-form-item-row>
             <n-form-item-row label="Correo electrónico">
-              <n-input :placeholder="'Escribe tu correo'" />
+              <n-input
+                type="email"
+                v-model:value="form.email"
+                :placeholder="'Escribe tu correo'"
+              />
             </n-form-item-row>
             <n-form-item-row label="Contraseña">
-              <n-input :placeholder="'Escribe tu contraseña'" />
+              <n-input
+                type="password"
+                v-model:value="form.password"
+                :placeholder="'Escribe tu contraseña'"
+              />
             </n-form-item-row>
-            <n-form-item-row label="Confirmar contraseña">
-              <n-input :placeholder="'Confirma tu contraseña'" />
-            </n-form-item-row>
+            <!-- <n-form-item-row label="Confirmar contraseña">
+              <n-input
+                type="password"
+                v-model:value="form.confirmPassword"
+                :placeholder="'Confirma tu contraseña'"
+              />
+            </n-form-item-row> -->
           </n-form>
-          <n-button type="primary" block secondary strong>
+          <n-button type="primary" block secondary strong @click="register">
             Registrarme
           </n-button>
         </n-tab-pane>
@@ -59,20 +86,25 @@ import {
   NInput,
 } from "naive-ui";
 import { ref } from "vue";
-import { UserCredentials, UserSignup } from "../types/Auth/User";
+import { UserCredentials, UserRegister } from "../types/Auth/User";
+import { useAuthStore } from "../stores/auth";
 
-const loginForm = ref<UserCredentials>({
-  email: "",
-  password: "",
-});
-
-const signin = ref<UserSignup>({
+const form = ref<UserRegister | UserCredentials>({
   name: "",
   email: "",
   password: "",
-  confirmPassword: "",
+  // confirmPassword: "",
 });
 
+const authStore = useAuthStore();
+
+const login = (): void => {
+  authStore.login(form.value);
+};
+
+const register = (): void => {  
+  authStore.register(form.value);
+};
 </script>
 
 <style scoped>
