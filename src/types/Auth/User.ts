@@ -3,7 +3,7 @@ export type UserCredentials = {
   password: string;
 };
 
-export type UserSignup = UserCredentials & {
+export type UserRegister = UserCredentials & {
   name: string;
-  confirmPassword: string;
+  // confirmPassword: string;
 };
