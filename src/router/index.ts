@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 import AuthView from '@/views/AuthView.vue'
 import NewsView from '@/views/NewsView.vue'
+import HomeView from '@/views/HomeView.vue'
 import TournamentsLiveView from '@/views/TournamentsLiveView.vue'
 import CompetitorsView from '@/views/CompetitorsView.vue'
 import IndexAuthView from '@/views/auth/IndexView.vue'

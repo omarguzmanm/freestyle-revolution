@@ -13,7 +13,6 @@
           <n-form :model="form">
             <n-form-item-row label="Correo electrónico">
               <n-input
-                type="email"
                 v-model:value="form.email"
                 :placeholder="'Escribe tu correo'"
               />
@@ -46,7 +45,6 @@
             </n-form-item-row>
             <n-form-item-row label="Correo electrónico">
               <n-input
-                type="email"
                 v-model:value="form.email"
                 :placeholder="'Escribe tu correo'"
               />
