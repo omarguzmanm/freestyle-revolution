@@ -86,10 +86,10 @@ import {
   NInput,
 } from "naive-ui";
 import { ref } from "vue";
-import { UserCredentials, UserRegister } from "../types/Auth/User";
-import { useAuthStore } from "../stores/auth";
+import { UserCredentials } from "@/types/auth/User";
+import { useAuthStore } from "@/stores/auth";
 
-const form = ref<UserRegister | UserCredentials>({
+const form = ref<UserCredentials>({
   name: "",
   email: "",
   password: "",

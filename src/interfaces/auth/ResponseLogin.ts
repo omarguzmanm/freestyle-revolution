@@ -1,4 +1,4 @@
-import { User } from "../User";
+import { User } from "@/interfaces/User";
 
 export interface ResponseLogin {
     message: string;

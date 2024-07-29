@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AuthView from '../views/AuthView.vue'
-import NewsView from '../views/NewsView.vue'
-import TournamentsLiveView from '../views/TournamentsLiveView.vue'
-import CompetitorsView from '../views/CompetitorsView.vue'
-import IndexAuthView from '../views/auth/IndexView.vue'
+import HomeView from '@/views/HomeView.vue'
+import AuthView from '@/views/AuthView.vue'
+import NewsView from '@/views/NewsView.vue'
+import TournamentsLiveView from '@/views/TournamentsLiveView.vue'
+import CompetitorsView from '@/views/CompetitorsView.vue'
+import IndexAuthView from '@/views/auth/IndexView.vue'
 import { useAuthStore } from '@/stores/auth'
 
 const routes: Array<RouteRecordRaw> = [
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/AboutView.vue')
   },
 
   //User logged routes
@@ -60,7 +60,7 @@ router.beforeEach(async (to) => {
   const authRequired = !publicPages.includes(to.path)
   const auth = useAuthStore()
   if (authRequired && !auth.user) {
-    auth.returlUrl = to.fullPath
+    auth.returnlUrl = to.fullPath
     return '/login'
   }
 })
